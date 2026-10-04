@@ -1,0 +1,25 @@
+{
+    "seed": 42,
+    "target": "is_bot",
+    "features": [
+        "failed_requests",
+        "refresh_count",
+        "reconnect_count",
+        "requests_per_second",
+        "session_duration_sec",
+        "timing_cv",
+        "burstiness_score",
+        "mouse_events",
+        "keyboard_events",
+        "scroll_events",
+        "human_action_ratio",
+        "request_action_ratio",
+        "success_rate",
+        "retry_rate"
+    ],
+    "threshold": 0.24999999999999992,
+    "calibration": "sigmoid",
+    "model_type": "XGBoost",
+    "base_model_path": "ML\\models\\xgboost_bot_detector.joblib",
+    "calibrated_model_path": "ML\\models\\xgboost_bot_detector_calibrated.joblib"
+}

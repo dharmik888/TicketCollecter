@@ -1,0 +1,74 @@
+{
+    "sequence_length": 100,
+    "input_dimension": 25,
+    "event_types": [
+        "session_start",
+        "page_load",
+        "wait",
+        "request",
+        "request_success",
+        "request_failure",
+        "retry",
+        "refresh",
+        "reconnect",
+        "queue_join",
+        "queue_poll",
+        "pow_start",
+        "pow_complete",
+        "session_end"
+    ],
+    "numeric_features": [
+        "inter_event_time_ms",
+        "retry_count",
+        "request_number",
+        "active_sessions",
+        "queue_position",
+        "session_age_sec",
+        "time_since_last_request_ms",
+        "time_since_last_failure_ms",
+        "mouse_events",
+        "keyboard_events",
+        "scroll_events"
+    ],
+    "threshold": 0.5600000000000002,
+    "metrics": {
+        "validation": {
+            "threshold": 0.5600000000000002,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 1.0
+        },
+        "test": {
+            "threshold": 0.5600000000000002,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "pr_auc": 0.9999999999999999
+        }
+    },
+    "preprocessing": {
+        "time_transform": "log1p",
+        "count_transform": "log1p",
+        "negative_values": "clipped_to_zero",
+        "padding": "zero",
+        "mask_value": 0.0
+    },
+    "architecture": {
+        "gru_1": 64,
+        "gru_2": 32,
+        "dense": 16,
+        "dropout_1": 0.25,
+        "dropout_2": 0.25,
+        "dropout_3": 0.2
+    },
+    "training": {
+        "batch_size": 128,
+        "epochs": 40,
+        "learning_rate": 0.001,
+        "loss": "binary_crossentropy"
+    },
+    "random_state": 42
+}

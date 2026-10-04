@@ -1,0 +1,7 @@
+traffic_type,samples,actual_bots,predicted_bots,precision,recall,f1,roc_auc
+adaptive_bot,72,72,72,1.0,1.0,1.0,
+aggressive_bot,77,77,77,1.0,1.0,1.0,
+human,82,0,0,0.0,0.0,0.0,
+multi_session_bot,392,392,392,1.0,1.0,1.0,
+rapid_retry_bot,83,83,83,1.0,1.0,1.0,
+stealth_bot,58,58,58,1.0,1.0,1.0,

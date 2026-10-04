@@ -1,0 +1,85 @@
+{
+    "model": "IsolationForest",
+    "purpose": "Novel behavioral anomaly detection against legitimate human traffic",
+    "data_path": "ML/data/traffic_behavior_dataset.csv",
+    "feature_columns": [
+        "requests",
+        "successful_requests",
+        "failed_requests",
+        "retry_count",
+        "refresh_count",
+        "reconnect_count",
+        "queue_join_count",
+        "queue_poll_count",
+        "requests_per_second",
+        "session_duration_sec",
+        "avg_inter_event_ms",
+        "std_inter_event_ms",
+        "timing_cv",
+        "timing_entropy",
+        "request_interval_cv",
+        "mean_retry_latency_ms",
+        "retry_latency_std_ms",
+        "event_entropy",
+        "burstiness_score",
+        "mouse_events",
+        "keyboard_events",
+        "scroll_events",
+        "human_action_ratio",
+        "request_action_ratio",
+        "user_session_count",
+        "peak_active_sessions",
+        "mean_active_sessions",
+        "success_rate",
+        "failure_rate",
+        "retry_rate",
+        "reconnect_rate",
+        "sessions_per_user",
+        "cluster_size",
+        "multi_session_behavior",
+        "cluster_request_rate_std"
+    ],
+    "num_features": 35,
+    "random_state": 42,
+    "n_estimators": 300,
+    "contamination": "auto",
+    "training_strategy": "Model trained exclusively on legitimate human training sessions",
+    "target_human_fpr": 0.01,
+    "threshold": 0.14995508351006276,
+    "validation_metrics": {
+        "roc_auc": 0.9490589836773944,
+        "pr_auc": 0.9897200311208444,
+        "precision": 0.9910714285714286,
+        "recall": 0.1289198606271777,
+        "f1": 0.22816032887975335,
+        "confusion_matrix": [
+            [
+                92,
+                1
+            ],
+            [
+                750,
+                111
+            ]
+        ]
+    },
+    "test_metrics": {
+        "roc_auc": 0.9250415706409172,
+        "pr_auc": 0.9810370870507737,
+        "precision": 0.9836065573770492,
+        "recall": 0.14527845036319612,
+        "f1": 0.25316455696202533,
+        "confusion_matrix": [
+            [
+                81,
+                2
+            ],
+            [
+                706,
+                120
+            ]
+        ]
+    },
+    "score_definition": "Higher anomaly_score means more anomalous",
+    "threshold_definition": "Validation human percentile corresponding to target human FPR"
+}

@@ -1,0 +1,15 @@
+feature,importance
+refresh_count,0.35944617
+mouse_events,0.33683068
+reconnect_count,0.15530115
+keyboard_events,0.060955092
+timing_cv,0.038676377
+scroll_events,0.014023277
+human_action_ratio,0.012357689
+requests_per_second,0.007915511
+retry_rate,0.005363374
+failed_requests,0.0029932999
+success_rate,0.0024630309
+request_action_ratio,0.0021145146
+burstiness_score,0.0008956969
+session_duration_sec,0.00066416874

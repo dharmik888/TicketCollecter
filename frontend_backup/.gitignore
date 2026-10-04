@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Lovable-era downloaded bundle (root-level assets from Lovable CDN)
+/assets/
+
+# Lovable-era scratch & analysis files
+lovable_index.html
+fetch_site.js
+bookings.html
+browse.html
+event_detail.html
+queue_room.html
+checkout.html
+staff.html
+tools/
+src/styles-CTSsjgk0.css
+public/assets/styles-CTSsjgk0.css
+
+# Logs
+*.log
