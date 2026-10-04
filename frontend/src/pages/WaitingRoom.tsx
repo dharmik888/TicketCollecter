@@ -33,7 +33,7 @@ export const WaitingRoom: React.FC = () => {
     const runPoW = async () => {
       try {
         // 1. Fetch Challenge
-        const res = await fetch('http://localhost:3001/api/allocation/challenge', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/allocation/challenge`, {
           headers: { 'user-id': user!.id }
         });
         const { challenge, difficulty } = await res.json();
@@ -44,7 +44,7 @@ export const WaitingRoom: React.FC = () => {
         });
 
         // 3. Verify Challenge
-        const verifyRes = await fetch('http://localhost:3001/api/allocation/verify-pow', {
+        const verifyRes = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/allocation/verify-pow`, {
           method: 'POST',
           headers: { 
             'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ export const WaitingRoom: React.FC = () => {
   const connectToQueue = () => {
     setStatus('queueing');
     
-    const socket = io('http://localhost:3001', {
+    const socket = io(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}`, {
       auth: { token }
     });
     socketRef.current = socket;

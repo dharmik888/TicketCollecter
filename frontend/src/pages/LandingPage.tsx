@@ -18,14 +18,14 @@ export const LandingPage: React.FC = () => {
   const [address, setAddress] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/events')
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events`)
       .then(res => res.json())
       .then(data => setEvents(data));
   }, [setEvents]);
 
   const handleAuth = async (isLogin: boolean) => {
     const endpoint = isLogin ? '/login' : '/register';
-    const res = await fetch(`http://localhost:3001/api/auth${endpoint}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/auth${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -46,7 +46,7 @@ export const LandingPage: React.FC = () => {
   const handleRegisterDetails = async () => {
     if (!selectedEventForDetails || !user) return;
     try {
-      const res = await fetch(`http://localhost:3001/api/events/${selectedEventForDetails}/register-details`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events/${selectedEventForDetails}/register-details`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'user-id': user.id },
         body: JSON.stringify({ fullName, phoneNumber, emailId, address })

@@ -10,7 +10,7 @@ export const MyBookings: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      fetch('http://localhost:3001/api/events/user/bookings', {
+      fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events/user/bookings`, {
         headers: { 'user-id': user.id }
       })
       .then(r => r.json())

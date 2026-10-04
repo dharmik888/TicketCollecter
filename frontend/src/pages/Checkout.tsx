@@ -31,7 +31,7 @@ export const Checkout: React.FC = () => {
       return;
     }
 
-    const res = await fetch(`http://localhost:3001/api/events/${eventId}/checkout`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events/${eventId}/checkout`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',

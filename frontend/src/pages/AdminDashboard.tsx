@@ -37,7 +37,7 @@ export const AdminDashboard: React.FC = () => {
   const [queueModal, setQueueModal] = useState<any[] | null>(null);
 
   const fetchEvents = () => {
-    fetch('http://localhost:3001/api/events', {
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.json())
@@ -62,7 +62,7 @@ export const AdminDashboard: React.FC = () => {
   }, [user]);
 
   const handleCreate = async () => {
-    await fetch('http://localhost:3001/api/events', {
+    await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export const AdminDashboard: React.FC = () => {
   };
 
   const handleOpen = async (id: string) => {
-    await fetch(`http://localhost:3001/api/events/${id}/open`, {
+    await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events/${id}/open`, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -86,7 +86,7 @@ export const AdminDashboard: React.FC = () => {
   };
 
   const handleStop = async (id: string) => {
-    await fetch(`http://localhost:3001/api/events/${id}/stop`, {
+    await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events/${id}/stop`, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${token}` }
     });
@@ -94,7 +94,7 @@ export const AdminDashboard: React.FC = () => {
   };
 
   const handleViewQueue = async (id: string) => {
-    const res = await fetch(`http://localhost:3001/api/events/${id}/queue-details`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/api/events/${id}/queue-details`, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     const data = await res.json();
